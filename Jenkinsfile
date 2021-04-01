@@ -1,8 +1,8 @@
 pipeline {
 	
 	environment{
-		registry = "vidhya3112/k8s-pipeline"
-		registryCredentials = 'docker-hub'
+		registry = "vidhya3112/k8s-pipeline2"
+		registryCredentials = 'docker-credentials'
 		dockerImage = ''
 	}
 	agent any
@@ -40,8 +40,8 @@ pipeline {
     } */
 	stage('Upload Docker Image to GCR'){
         steps{
-            sh 'docker tag vidhya3112/k8s-pipeline gcr.io/rising-minutia-309213/starworld'
-            sh 'docker push gcr.io/rising-minutia-309213/starworld'
+            sh 'docker tag vidhya3112/k8s-pipeline gcr.io/rising-minutia-309213/task2image'
+            sh 'docker push gcr.io/rising-minutia-309213/task2image'
         }
     }
 		
