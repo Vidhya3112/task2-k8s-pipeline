@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo2-deployment
+  labels:
+    app: demo-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-app1
+  template:
+    metadata:
+      labels:
+        app: demo-app1
+    spec:
+
+      containers:
+      - image: gcr.io/rising-minutia-309213/task2image
+        name: task2image
+        imagePullPolicy: Always
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-service2
+spec:
+  selector:
+    app: demo-app1
+  ports:
+    - port: 8080
+      targetPort: 8080
+     
+  type: LoadBalancer
