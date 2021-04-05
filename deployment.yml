@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo2-deployment
+  name: demo-deployment
   labels:
-    app: demo-app1
+    app: demo-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: demo-app1
+      app: demo-app
   template:
     metadata:
       labels:
-        app: demo-app1
+        app: demo-app
     spec:
 
       containers:
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo-service2
+  name: demo-service
 spec:
   selector:
-    app: demo-app1
+    app: demo-app
   ports:
     - port: 8080
       targetPort: 8080
