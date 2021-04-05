@@ -29,7 +29,7 @@ spec:
   selector:
     app: demo-app2
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 8096
+      targetPort: 8096
      
   type: LoadBalancer
