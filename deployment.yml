@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-deployment
+  name: demo-deployment2
   labels:
-    app: demo-app
+    app: demo-app2
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: demo-app
+      app: demo-app2
   template:
     metadata:
       labels:
-        app: demo-app
+        app: demo-app2
     spec:
 
       containers:
-      - image: gcr.io/rising-minutia-309213/task2image
+      - image: gcr.io/rising-minutia-309213/task2image:latest
         name: task2image
         imagePullPolicy: Always
         
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo-service
+  name: demo-service2
 spec:
   selector:
-    app: demo-app
+    app: demo-app2
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 8081
+      targetPort: 8081
      
   type: LoadBalancer
