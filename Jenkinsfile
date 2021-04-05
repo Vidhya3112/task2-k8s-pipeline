@@ -44,7 +44,7 @@ pipeline {
     } */
 	stage('Upload Docker Image to GCR'){
         steps{
-            sh 'docker tag vidhya3112/k8s-pipeline gcr.io/rising-minutia-309213/task2image":$BUILD_NUMBER"'
+            sh 'docker tag vidhya3112/k8s-pipeline2 gcr.io/rising-minutia-309213/task2image":$BUILD_NUMBER"'
             sh 'docker push gcr.io/rising-minutia-309213/task2image":$BUILD_NUMBER"'
         }
     }
